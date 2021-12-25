@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditProfile">
+    <ImageView
+        android:id="@+id/id_validation"
+        android:layout_width="1658dp"
+        android:layout_height="891dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.262"
+        app:srcCompat="@drawable/interfaceeditprofile" />
+
+    <EditText
+        android:id="@+id/id_namePedit"
+        android:layout_width="330dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="328dp"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.58"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/id_emailPedit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:drawableLeft="@drawable/ic_baseline_email_24"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/id_namePedit"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/id_namePedit"
+        app:layout_constraintTop_toBottomOf="@+id/id_namePedit" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="74dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="152dp"
+        app:layout_constraintBottom_toTopOf="@+id/id_namePedit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/verification" />
+</androidx.constraintlayout.widget.ConstraintLayout>

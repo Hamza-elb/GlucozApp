@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "141691329042",
+    "project_id": "glucoz-ccdaa",
+    "storage_bucket": "glucoz-ccdaa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:141691329042:android:1c562bcb48ff1eff91d6cb",
+        "android_client_info": {
+          "package_name": "com.hamza.glucoz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "141691329042-s3ah111nhh5c5ig9n86pss07ln2mngap.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0-TP7r4XjNaAea9v6aXtOKv_asehVHNA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "141691329042-s3ah111nhh5c5ig9n86pss07ln2mngap.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
