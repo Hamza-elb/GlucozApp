@@ -93,7 +93,6 @@ EditText name, email, pass, verifpass;
                             hashMap.put("userId",userId);
                             hashMap.put("name",name);
                             hashMap.put("email",email);
-                            //hashMap.put("password",password);
                             databaseReference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {

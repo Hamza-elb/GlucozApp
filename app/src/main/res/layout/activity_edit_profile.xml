@@ -43,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/id_namePedit" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/id_verif"
         android:layout_width="74dp"
         android:layout_height="68dp"
         android:layout_marginTop="152dp"

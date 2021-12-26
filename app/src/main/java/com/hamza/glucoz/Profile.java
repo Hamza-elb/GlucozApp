@@ -69,23 +69,7 @@ public class Profile extends AppCompatActivity {
         });
 
     }
-
-//    private void showprofile(FirebaseUser user) {
-//        String userId= fAuth.getCurrentUser().getUid();
-//        DatabaseReference reference= FirebaseDatabase.getInstance().getReference("register users");
-//        reference.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                //ReadWriteUserDetails readWriteUserDetails = snapshot.getValue()
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-//    }
-
+    //retour
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         startActivity(new Intent(getApplicationContext(),Dashbord.class));
