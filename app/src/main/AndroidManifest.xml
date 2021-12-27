@@ -12,6 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Glucoz">
         <activity
+            android:name=".reminder"
+            android:exported="false" />
+
+        <activity
             android:name=".EditProfile"
             android:exported="false" />
         <activity
@@ -48,6 +52,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver android:name=".AlarmReceiver" />
     </application>
 
 </manifest>

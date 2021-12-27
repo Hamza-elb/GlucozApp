@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
@@ -21,6 +22,7 @@ public class Dashbord extends AppCompatActivity implements NavigationView.OnNavi
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
     NavigationView navigationView;
+    Button btntoReminder;
 
 
     @Override
@@ -29,14 +31,27 @@ public class Dashbord extends AppCompatActivity implements NavigationView.OnNavi
         setContentView(R.layout.activity_dashbord);
 
         setSupportActionBar(findViewById(R.id.id_toolbar));
-        drawerLayout=findViewById(R.id.dash);
-        navigationView=findViewById(R.id.nav_view);
+        drawerLayout = findViewById(R.id.dash);
+        navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        actionBarDrawerToggle= new ActionBarDrawerToggle(this,drawerLayout,findViewById(R.id.id_toolbar),R.string.open,R.string.close);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, findViewById(R.id.id_toolbar), R.string.open, R.string.close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
         actionBarDrawerToggle.syncState();
+        btntoReminder = findViewById(R.id.toreminder);
+
+
+        btntoReminder.setOnClickListener(view -> {
+            Intent intent = new Intent(Dashbord.this,reminder.class);
+           startActivity(intent);
+       });
+
+
     }
+
+
+
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
