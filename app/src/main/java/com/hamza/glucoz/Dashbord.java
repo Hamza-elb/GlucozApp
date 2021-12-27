@@ -8,6 +8,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +19,8 @@ import android.widget.Toolbar;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.io.File;
 
 public class Dashbord extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
@@ -64,6 +68,16 @@ public class Dashbord extends AppCompatActivity implements NavigationView.OnNavi
                 break;
             case  R.id.id_profile:
                 startActivity(new Intent(getApplicationContext(),Profile.class));
+            case R.id.id_share:
+                ApplicationInfo api = getApplicationContext().getApplicationInfo();
+                String apk=api.sourceDir;
+                Intent intent=new Intent(Intent.ACTION_SENDTO);
+                intent.setType("application/vnd.android.package-archive");
+                intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(apk)));
+                //intent.putExtra(intent.EXTRA_SUBJECT,"cheek out this cool application");
+                //intent.putExtra(intent.EXTRA_TEXT,"your application link here");
+                startActivity(Intent.createChooser(intent,"Share via"));
+                break;
 
             default:
                 Toast.makeText(this,"khedama",Toast.LENGTH_SHORT).show();
