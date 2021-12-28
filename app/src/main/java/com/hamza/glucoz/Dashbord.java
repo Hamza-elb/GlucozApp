@@ -68,6 +68,7 @@ public class Dashbord extends AppCompatActivity implements NavigationView.OnNavi
                 break;
             case  R.id.id_profile:
                 startActivity(new Intent(getApplicationContext(),Profile.class));
+                break;
             case R.id.id_share:
                 ApplicationInfo api = getApplicationContext().getApplicationInfo();
                 String apk=api.sourceDir;
@@ -77,6 +78,12 @@ public class Dashbord extends AppCompatActivity implements NavigationView.OnNavi
                 //intent.putExtra(intent.EXTRA_SUBJECT,"cheek out this cool application");
                 //intent.putExtra(intent.EXTRA_TEXT,"your application link here");
                 startActivity(Intent.createChooser(intent,"Share via"));
+                break;
+            case R.id.id_about:
+                startActivity(new Intent(getApplicationContext(),About.class));
+                break;
+            case R.id.id_calcul:
+                startActivity(new Intent(getApplicationContext(),Calculator.class));
                 break;
 
             default:

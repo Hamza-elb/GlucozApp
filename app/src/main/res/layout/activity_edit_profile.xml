@@ -24,6 +24,8 @@
         android:drawableLeft="@drawable/ic_baseline_person_24"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.58"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,6 +39,7 @@
         android:drawableLeft="@drawable/ic_baseline_email_24"
         android:ems="10"
         android:inputType="textEmailAddress"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/id_namePedit"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/id_namePedit"
@@ -44,14 +47,12 @@
 
     <ImageView
         android:id="@+id/id_verif"
-        android:layout_width="74dp"
-        android:layout_height="68dp"
-        android:layout_marginTop="152dp"
-        app:layout_constraintBottom_toTopOf="@+id/id_namePedit"
+        android:layout_width="86dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="552dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/verification" />
 </androidx.constraintlayout.widget.ConstraintLayout>
