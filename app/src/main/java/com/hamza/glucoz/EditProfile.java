@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -75,7 +76,7 @@ public class EditProfile extends AppCompatActivity {
 
        });
 
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 
@@ -100,4 +101,9 @@ public class EditProfile extends AppCompatActivity {
             return false;
         }
   }
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        startActivity(new Intent(getApplicationContext(),Dashbord.class));
+        finish();
+        return super.onOptionsItemSelected(item);
+    }
 }
