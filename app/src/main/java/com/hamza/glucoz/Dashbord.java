@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
@@ -26,7 +28,10 @@ public class Dashbord extends AppCompatActivity implements NavigationView.OnNavi
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
     NavigationView navigationView;
-    Button btntoReminder;
+    TextView btntoReminder;
+    TextView glycemie;
+    TextView hba1c;
+
 
 
     @Override
@@ -42,13 +47,43 @@ public class Dashbord extends AppCompatActivity implements NavigationView.OnNavi
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
         actionBarDrawerToggle.syncState();
-        btntoReminder = findViewById(R.id.toreminder);
+        btntoReminder =findViewById(R.id.toreminder);
+        glycemie=findViewById(R.id.glucose_view);
+
+        //glycemie
+
+        glycemie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Dashbord.this,AddGlycemie.class);
+                startActivity(intent);
+
+                Toast.makeText(Dashbord.this, "ajouter une valeur glycémie",Toast.LENGTH_SHORT).show();
+            }
+        });
+        //hb1ac
+        hba1c=(TextView)findViewById(R.id.hba1c_view);
+        hba1c.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Dashbord.this,AddHbA1c.class);
+                startActivity(intent);
+
+                Toast.makeText(Dashbord.this, "ajouter une valeur hba1c",Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
+
+
+
+
+
+        //alarm
         btntoReminder.setOnClickListener(view -> {
             Intent intent = new Intent(Dashbord.this,reminder.class);
-           startActivity(intent);
-       });
+            startActivity(intent);
+        });
 
 
     }
