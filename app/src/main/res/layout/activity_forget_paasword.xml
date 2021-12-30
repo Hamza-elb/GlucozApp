@@ -4,6 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/forgetpass"
     tools:context=".forgetPaasword">
 
+    <EditText
+        android:id="@+id/id_emailreset"
+        android:layout_width="285dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="300dp"
+        android:ems="10"
+        android:hint="Enter Your Email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/id_forgetImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/id_emailreset"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="@+id/id_emailreset"
+        app:layout_constraintTop_toBottomOf="@+id/id_emailreset"
+        app:layout_constraintVertical_bias="0.079"
+        app:srcCompat="@drawable/resetpass" />
 </androidx.constraintlayout.widget.ConstraintLayout>

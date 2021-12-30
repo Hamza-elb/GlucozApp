@@ -24,6 +24,9 @@
             android:name=".About"
             android:exported="false" />
         <activity
+            android:name=".forgetPaasword"
+            android:exported="false" />
+        <activity
             android:name=".reminder"
             android:exported="false" />
         <activity
