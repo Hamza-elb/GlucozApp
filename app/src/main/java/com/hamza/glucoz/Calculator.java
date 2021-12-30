@@ -30,6 +30,7 @@ public class Calculator extends AppCompatActivity {
 
         put=findViewById(R.id.id_calculPut);
         out=findViewById(R.id.id_calculOut);
+<<<<<<< HEAD
         cnv=findViewById(R.id.id_btnConvert);
 
         cnv.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +64,17 @@ public class Calculator extends AppCompatActivity {
         //double o = (p*7)/1.5;
         //String r = Double.toString(o);
         //out.setText(r);
+=======
+
+        //String Put=put.getText().toString().trim();
+        double p= Double.valueOf(put.getText().toString());
+        double o ;
+        o = (p* 7) / 1.5;
+
+       out.setText(Double.toString(o));
+
+
+>>>>>>> 9a77fa1bdc3f060c0051bfb530e17c44c02c9775
     }
 
 
