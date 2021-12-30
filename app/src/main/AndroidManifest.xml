@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Glucoz">
         <activity
+            android:name=".AddHbA1c"
+            android:exported="false" />
+        <activity
+            android:name=".AddGlycemie"
+            android:exported="false" />
+        <activity
             android:name=".Calculator"
             android:exported="false" />
         <activity
