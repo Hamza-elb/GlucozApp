@@ -60,18 +60,5 @@
         app:layout_constraintTop_toBottomOf="@+id/id_emailP"
         app:srcCompat="@drawable/editprofile" />
 
-    <ImageView
-        android:id="@+id/id_resetP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/id_editP"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/id_editP"
-        app:layout_constraintTop_toBottomOf="@+id/id_editP"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/resetpass" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

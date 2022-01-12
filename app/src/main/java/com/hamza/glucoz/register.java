@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -42,7 +43,7 @@ EditText name, email, pass, verifpass;
         register = findViewById(R.id.id_registerImg);
 
         fAuth = FirebaseAuth.getInstance();
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         register.setOnClickListener(new View.OnClickListener() {
@@ -113,6 +114,13 @@ EditText name, email, pass, verifpass;
                 });
     }
 
+    //retour
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        startActivity(new Intent(getApplicationContext(),Dashbord.class));
+        finish();
+        return super.onOptionsItemSelected(item);
+    }
 
 
 

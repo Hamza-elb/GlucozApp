@@ -101,8 +101,9 @@ public class EditProfile extends AppCompatActivity {
             return false;
         }
   }
+  //r
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        startActivity(new Intent(getApplicationContext(),Dashbord.class));
+        startActivity(new Intent(getApplicationContext(),Profile.class));
         finish();
         return super.onOptionsItemSelected(item);
     }

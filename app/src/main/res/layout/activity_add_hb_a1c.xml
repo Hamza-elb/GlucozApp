@@ -21,7 +21,8 @@
                 android:id="@+id/et_concetration"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="concentration" />
+                android:inputType="numberDecimal"
+                android:hint="Hba1c" />
 
         </com.google.android.material.textfield.TextInputLayout>
         <TextView

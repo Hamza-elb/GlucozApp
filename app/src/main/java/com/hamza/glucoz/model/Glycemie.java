@@ -1,8 +1,5 @@
 package com.hamza.glucoz.model;
 
-import java.sql.Time;
-import java.util.Date;
-
 public class Glycemie {
     Float concentration;
     String date;
@@ -24,7 +21,7 @@ public class Glycemie {
 
         this.time = time;
     }
-    public Float getConcentration() {
+    public float getConcentration() {
         return concentration;
     }
 

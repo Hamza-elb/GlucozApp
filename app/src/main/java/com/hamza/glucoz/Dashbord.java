@@ -8,6 +8,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,8 +20,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.io.File;
 
@@ -31,6 +35,12 @@ public class Dashbord extends AppCompatActivity implements NavigationView.OnNavi
     TextView btntoReminder;
     TextView glycemie;
     TextView hba1c;
+    TextView dispaly;
+    Button hstr;
+    FirebaseAuth fAuth;
+    FirebaseUser user;
+    TextView cetones;
+    BottomNavigationView bottomNavigationView;
 
 
 
@@ -49,6 +59,20 @@ public class Dashbord extends AppCompatActivity implements NavigationView.OnNavi
         actionBarDrawerToggle.syncState();
         btntoReminder =findViewById(R.id.toreminder);
         glycemie=findViewById(R.id.glucose_view);
+        //hstr = findViewById(R.id.id_historique);
+
+        fAuth=FirebaseAuth.getInstance();
+        user=fAuth.getCurrentUser();
+
+        //dispaly= findViewById(R.id.display);
+
+//        hstr.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(Dashbord.this,DataGlycemie.class);
+//                startActivity(intent);
+//            }
+//        });
 
         //glycemie
 
@@ -73,9 +97,39 @@ public class Dashbord extends AppCompatActivity implements NavigationView.OnNavi
             }
         });
 
+        cetones=(TextView)findViewById(R.id.cetones_view);
+        cetones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Dashbord.this,AddCetones.class);
+                startActivity(intent);
 
+                Toast.makeText(Dashbord.this, "ajouter le pourcentage cetones",Toast.LENGTH_SHORT).show();
+            }
+        });
 
-
+//navigation
+        bottomNavigationView=findViewById(R.id.bottomNavigation);
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    /*caconcerne le bottom home desactivée
+                    case R.id.content_Dash:
+                        Intent intent=new Intent(Dashbord.this,Dashbord.class);
+                        startActivity(intent);
+                        Toast.makeText(Dashbord.this, "ggg" +
+                                "", Toast.LENGTH_SHORT).show();
+                        break;*/
+                    case R.id.dataGlycemie:
+                        Intent intenta=new Intent(Dashbord.this,DataGlycemie.class);
+                        startActivity(intenta);
+                        Toast.makeText(Dashbord.this, "voici votre historique", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                return true;
+            }
+        });
 
 
 
@@ -86,10 +140,25 @@ public class Dashbord extends AppCompatActivity implements NavigationView.OnNavi
        });
 
 
+
+
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        checkuserstatus();
+    }
 
+    private void checkuserstatus() {
+        SharedPreferences sharedPreferences=getSharedPreferences("logindata",MODE_PRIVATE);
+        Boolean counter=sharedPreferences.getBoolean("logincounter",Boolean.valueOf(String.valueOf(MODE_PRIVATE)));
+        String Email=sharedPreferences.getString("useremail",String.valueOf(MODE_PRIVATE));
+            if(counter){
+                //Toast.makeText(Dashbord.this, "Yes" + Email , Toast.LENGTH_SHORT).show();
+            }
 
+    }
 
 
     @Override
@@ -97,6 +166,8 @@ public class Dashbord extends AppCompatActivity implements NavigationView.OnNavi
         switch (item.getItemId()){
             case R.id.id_logout:
                 FirebaseAuth.getInstance().signOut();
+                SharedPreferences sharedPreferences=getSharedPreferences("logindata",MODE_PRIVATE);
+                sharedPreferences.edit().clear().commit();
                 //startActivity(new Intent(getApplicationContext(),LoginActivity.class));
                 dispalyAlert();
 
@@ -130,7 +201,7 @@ public class Dashbord extends AppCompatActivity implements NavigationView.OnNavi
     private void dispalyAlert() {
         AlertDialog.Builder warning = new AlertDialog.Builder(this)
                 .setTitle("Are you sure !!")
-                .setMessage("You are chi 7aja!!!!!!")
+                .setMessage("Click Yes if you want to disconnect !!")
                 .setPositiveButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Glucoz">
         <activity
+            android:name=".ChangePassword"
+            android:exported="false" />
+
+        <activity
+            android:name=".AddCetones"
+            android:exported="false" />
+
+
+        <activity
+            android:name=".DataGlycemie"
+            android:exported="false" />
+        <activity
             android:name=".AddHbA1c"
             android:exported="false" />
         <activity
@@ -37,6 +49,9 @@
             android:exported="false" />
         <activity
             android:name=".Content_Dash"
+            android:exported="false" />
+        <activity
+            android:name=".MenuDown"
             android:exported="false" />
         <activity
             android:name=".header"

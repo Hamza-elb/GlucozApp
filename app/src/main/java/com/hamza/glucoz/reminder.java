@@ -1,11 +1,13 @@
 package com.hamza.glucoz;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,6 +29,16 @@ public class reminder extends AppCompatActivity implements View.OnClickListener 
 
         findViewById(R.id.id_btnsetreminder).setOnClickListener(this);
         findViewById(R.id.id_btncancelreminder).setOnClickListener(this);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    //retour
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        startActivity(new Intent(getApplicationContext(),Dashbord.class));
+        finish();
+        return super.onOptionsItemSelected(item);
     }
 
 
