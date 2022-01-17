@@ -45,36 +45,39 @@ public class LoginActivity extends AppCompatActivity {
         signIn=findViewById(R.id.id_signIn);
         forgetPass=findViewById(R.id.id_forget);
 
-        signIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String Email = email.getText().toString().trim();
-                String Password = pass.getText().toString().trim();
-                if (TextUtils.isEmpty(Email)){
-                    email.setError("Email Is Required !!");
-                    return;
-                }
-                if (TextUtils.isEmpty(Password)){
-                    pass.setError("Password Is Required !!");
-                    return;
-                }
-                fAuth.signInWithEmailAndPassword(Email,Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(LoginActivity.this,"logged in successfully!!", Toast.LENGTH_SHORT).show();
-                            //startActivity(new Intent(getApplicationContext(),Dashbord.class));
-                            FirebaseUser user = fAuth.getCurrentUser();
-                            saveUser(Email);
-                        }else{
-                            Toast.makeText(LoginActivity.this,"Error!!", Toast.LENGTH_SHORT).show();
-                        }
 
+
+            signIn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String Email = email.getText().toString().trim();
+                    String Password = pass.getText().toString().trim();
+                    if (TextUtils.isEmpty(Email)) {
+                        email.setError("Email Is Required !!");
+                        return;
                     }
-                });
+                    if (TextUtils.isEmpty(Password)) {
+                        pass.setError("Password Is Required !!");
+                        return;
+                    }
+                    fAuth.signInWithEmailAndPassword(Email, Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(LoginActivity.this, "logged in successfully!!", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(), Dashbord.class));
+                                //FirebaseUser user = fAuth.getCurrentUser();
+                                //saveUser(Email);
+                            } else {
+                                Toast.makeText(LoginActivity.this, "Error!!", Toast.LENGTH_SHORT).show();
+                            }
 
-            }
-        });
+                        }
+                    });
+
+                }
+            });
+
 
         signUp.setOnClickListener(view -> {
             Intent intent = new Intent(LoginActivity.this,register.class);
@@ -93,15 +96,15 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void saveUser(String Email){
-        SharedPreferences sharedPreferences = getSharedPreferences("logindata",MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("logincounter",true);
-        editor.putString("email",Email);
-        editor.apply();
-        startActivity(new Intent(getApplicationContext(),Dashbord.class));
-        finish();
-    }
+//    public void saveUser(String Email){
+//        SharedPreferences sharedPreferences = getSharedPreferences("logindata",MODE_PRIVATE);
+//        SharedPreferences.Editor editor = sharedPreferences.edit();
+//        editor.putBoolean("logincounter",true);
+//        editor.putString("email",Email);
+//        editor.apply();
+//        startActivity(new Intent(getApplicationContext(),Dashbord.class));
+//        finish();
+//    }
 
 
 }

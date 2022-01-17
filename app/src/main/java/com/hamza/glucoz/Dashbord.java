@@ -166,8 +166,8 @@ public class Dashbord extends AppCompatActivity implements NavigationView.OnNavi
         switch (item.getItemId()){
             case R.id.id_logout:
                 FirebaseAuth.getInstance().signOut();
-                SharedPreferences sharedPreferences=getSharedPreferences("logindata",MODE_PRIVATE);
-                sharedPreferences.edit().clear().commit();
+                //SharedPreferences sharedPreferences=getSharedPreferences("logindata",MODE_PRIVATE);
+               // sharedPreferences.edit().clear().commit();
                 //startActivity(new Intent(getApplicationContext(),LoginActivity.class));
                 dispalyAlert();
 
@@ -211,8 +211,15 @@ public class Dashbord extends AppCompatActivity implements NavigationView.OnNavi
                 }).setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        startActivity(new Intent(getApplicationContext(),LoginActivity.class));
-                        finish();
+                        Intent intent = new Intent(Dashbord.this,LoginActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+
+
+
+                        //startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                        //finish();
                     }
                 });
 
